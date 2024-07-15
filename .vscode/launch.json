@@ -1,0 +1,20 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            // "args": ["--cfg", "/home/hq/Documents/WorkingRepos/MER_BASELINE_CD6ME/classification/configs/vssm/vssm_tiny_224.yaml", "--pretrained", "/home/hq/Documents/Weights/mamba_classification/vmamba_tiny_e292.pth"],
+            "python": "/home/hq/anaconda3/envs/meb_me_py311/bin/python",
+
+        }
+    ]
+
+}

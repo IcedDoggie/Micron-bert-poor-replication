@@ -4,6 +4,7 @@ import torch.nn.functional as F
 import cv2
 from torchvision import transforms
 
+import numpy as np
 
 img_size = 224
 imagenet_mean = np.array([0.485, 0.456, 0.406])
@@ -66,16 +67,23 @@ def get_model(checkpoint):
     model.load_state_dict(model_state_dict)
     return model, args
 
+def load_micron_bert_model():
+    # checkpoint = 'checkpoints/CASME2-is224-p8-b16-ep200.pth'
+    checkpoint = '/home/hq/Documents/Weights/MicronBert/CASME2-is224-p8-b16-ep200.pth'
+    # your_image_path = 'image.jpg'
+    model = get_model(checkpoint)[0].cuda()
+    # model.eval()
+    return model
 
-checkpoint = 'checkpoints/CASME2-is224-p8-b16-ep200.pth'
-your_image_path = 'image.jpg'
-model = get_model(checkpoint).cuda()
-model.eval()
+# checkpoint = 'checkpoints/CASME2-is224-p8-b16-ep200.pth'
+# your_image_path = 'image.jpg'
+# model = get_model(checkpoint).cuda()
+# model.eval()
 
-# To extract features
-image = load_image(your_image_path)
-image_tensor = image_to_tensor(image)
+# # To extract features
+# image = load_image(your_image_path)
+# image_tensor = image_to_tensor(image)
 
-with torch.no_grad():
-    features = model.extract_features(image)
-    # Use this features for finetunning.
+# with torch.no_grad():
+#     features = model.extract_features(image)
+#     # Use this features for finetunning.
